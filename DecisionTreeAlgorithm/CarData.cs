@@ -12,7 +12,7 @@ namespace DecisionTreeAlgorithm
         public static string[][] GetData()
         {
             List<string[]> retData = new List<string[]>();
-            string path = @"C:\Users\mmanl\Documents\CarData\car.data";
+            string path = @"..\..\car.txt";
             if (File.Exists(path))
             {
                 var lines = File.ReadAllLines(path);
@@ -22,17 +22,7 @@ namespace DecisionTreeAlgorithm
                     retData.Add(tokens);
                 }
             }
-            for (int i = 0; i < 10; i++)
-            {
-                if (retData.Count > 10)
-                {
-                    foreach (string item in retData[i])
-                    {
-                        Console.WriteLine(item + ", " );
-                    }
-                    Console.WriteLine();
-                }
-            }
+           
             return retData.ToArray();
         }
 
