@@ -17,6 +17,7 @@ namespace DecisionTreeAlgorithm
 
         public float Entropy { get; set; }
         public bool IsLeaf { get; set; }
+        public int TreeLevel { get; set; }
 
         public Node(string[][] data)
         {
@@ -41,7 +42,15 @@ namespace DecisionTreeAlgorithm
             createChildNodes(AttributeForSplit, Data);
             foreach (var child in childNodes)
             {
-                if (child.IsLeaf) Console.WriteLine("New leaf with value of " + child.Value);
+                child.TreeLevel = this.TreeLevel++;
+                if (child.IsLeaf)
+                {
+                    Console.WriteLine("New leaf with value of " + child.Value);
+                    if (!DecisionTree.leaves.Contains(child))
+                    {
+                        DecisionTree.leaves.Add(child);
+                    }
+                }
                 else
                 {
                     child.Split();

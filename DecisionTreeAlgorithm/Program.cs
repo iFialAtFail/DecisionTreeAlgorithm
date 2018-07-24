@@ -29,7 +29,7 @@ namespace DecisionTreeAlgorithm
         private static string[] doorsValues = new string[] { "2", "3", "4", "5more" };
         private static Attribute doors = new Attribute("doors", doorsValues.ToList(), 2);
 
-        private static string[] personsValues = new string[] { "2", "3", "more" };
+        private static string[] personsValues = new string[] { "2", "4", "more" };
         private static Attribute persons = new Attribute("persons", personsValues.ToList(), 3);
 
         private static string[] lug_boot_values = new string[] { "small", "med", "big" };
@@ -47,6 +47,9 @@ namespace DecisionTreeAlgorithm
             DecisionTree decisionTree = new DecisionTree(classes, theData);
             decisionTree.CreateTree();
             Console.WriteLine(decisionTree.Classify(new string[] { "vhigh", "vhigh", "3" , "2", "med", "high"}));
+            Console.WriteLine();
+            Console.WriteLine();
+            decisionTree.PrintErrors();
             Console.ReadKey();
         }
 
